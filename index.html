@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathew | Personal Portfolio</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Jan<span>Matsu.</span></a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#chatbot" class="nav-link">Ask Me</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode" title="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Home Section -->
+    <section id="home" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="greeting-badge">👋 Welcome to my portfolio</span>
+                <h1>Hi, I'm <span class="highlight">Jan Matsu</span></h1>
+                <h2>Full Stack Web Developer & Student</h2>
+                <p>Passionate about crafting clean, modern, and user-friendly digital experiences. I turn creative ideas into real web applications with clean code.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Projects</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-header">
+                        <i class="fas fa-user-graduate card-icon"></i>
+                        <h3>Who I Am</h3>
+                    </div>
+                    <p>I am an ambitious web developer driven by curiosity and problem-solving. I focus on developing responsive, accessible, and high-performance websites using contemporary frontend and backend tools.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-header">
+                        <i class="fas fa-graduation-cap card-icon"></i>
+                        <h3>Education</h3>
+                    </div>
+                    <p><strong>Bachelor of Science in Information Technology</strong></p>
+                    <p class="subtext">Focused on Software Engineering, Web Technologies, and Database Systems with consistent academic excellence.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-header">
+                        <i class="fas fa-award card-icon"></i>
+                        <h3>Leadership & Achievement</h3>
+                    </div>
+                    <p><strong>Lead Developer & Tech Team Lead</strong></p>
+                    <p class="subtext">Directed a team of student developers during University Tech Week Hackathon, securing 1st Runner-Up for a community management web portal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Skills Section (At least 5 skills) -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <p class="section-subtitle">Core technologies and tools I work with daily</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon" style="color: #e34f26;"></i>
+                    <h4>HTML5</h4>
+                    <p>Semantic markup & accessibility</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon" style="color: #264de4;"></i>
+                    <h4>CSS3</h4>
+                    <p>Flexbox, Grid & animations</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon" style="color: #f7df1e;"></i>
+                    <h4>JavaScript (ES6+)</h4>
+                    <p>DOM manipulation & async logic</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-github skill-icon" style="color: var(--text-main);"></i>
+                    <h4>Git & GitHub</h4>
+                    <p>Version control & collaboration</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon" style="color: #61dafb;"></i>
+                    <h4>React</h4>
+                    <p>Component-based web apps</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server skill-icon" style="color: #68a063;"></i>
+                    <h4>Node.js / Express</h4>
+                    <p>Backend APIs & databases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Projects Section (At least 2 sample projects) -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Sample Projects</h2>
+            <p class="section-subtitle">Some of the projects I've built recently</p>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <i class="fas fa-shopping-bag project-banner-icon"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Web Platform</h3>
+                        <p>A full-featured online storefront application featuring dynamic catalog filtering, shopping cart state management, and responsive checkout processing.</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Local Storage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <i class="fas fa-list-check project-banner-icon"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Interactive Task & Sprint Board</h3>
+                        <p>A drag-and-drop productivity web app enabling students and teams to categorize tasks, monitor deadlines, and track sprint completion statistics in real-time.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>CSS Grid</span>
+                            <span>Web Storage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Ask About Me Chatbot Section -->
+    <section id="chatbot" class="chatbot-section">
+        <div class="container">
+            <h2 class="section-title">Ask About Me</h2>
+            <p class="section-subtitle">Click a predefined question below to instantly learn more about me!</p>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        <div>
+                            <strong>Mathew Assistant</strong>
+                            <small class="status-text">Online & Ready</small>
+                        </div>
+                    </div>
+                    <button id="resetChatBtn" class="chat-reset-btn" title="Clear conversation"><i class="fas fa-rotate-right"></i> Reset</button>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-bubble bot-bubble">
+                        Hi there! 👋 I am Mathew's portfolio assistant. What would you like to know about Mathew? Pick any question below!
+                    </div>
+                </div>
+
+                <div class="chat-prompts">
+                    <p class="prompts-label"><i class="fas fa-lightbulb"></i> Suggested questions:</p>
+                    <div class="prompt-chips" id="promptChips">
+                        <button class="chip" data-question="education">🎓 What is your education?</button>
+                        <button class="chip" data-question="skills">💻 What are your key technical skills?</button>
+                        <button class="chip" data-question="projects">🚀 What projects have you completed?</button>
+                        <button class="chip" data-question="contact">📬 How can I hire or contact you?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Feel free to reach out for collaborations, project inquiries, or just to say hi!</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info-card">
+                    <h3>Contact Information</h3>
+                    <p>Have an interesting project or opportunity? Don't hesitate to message me.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email Address</strong>
+                            <p><a href="mailto:mathew@example.com">mathew@example.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Philippines</p>
+                        </div>
+                    </div>
+
+                    <div class="social-block">
+                        <strong>Connect On Socials</strong>
+                        <div class="social-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been sent successfully.'); this.reset();">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2026 Mathew. Built with HTML, CSS, and JavaScript. Hosted on GitHub.</p>
+            <div class="footer-links">
+                <a href="#home">Back to top <i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
