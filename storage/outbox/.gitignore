@@ -1,0 +1,3 @@
+# Local dev outbox — generated files are ignored by Git.
+*
+!.gitignore

@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    name: PHP 8.2 checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+
+      - name: Lint PHP files
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find api scripts -type f -name '*.php' | sort)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No PHP files found."
+            exit 0
+          fi
+
+          for file in "${files[@]}"; do
+            php -l "$file"
+          done
+
+      - name: Confirm .env is not committed
+        run: |
+          if git ls-files --error-unmatch .env > /dev/null 2>&1; then
+            echo "::error::.env is tracked by Git. Remove it and rotate the Resend API key."
+            exit 1
+          fi
+          echo ".env is not tracked."
+
+      - name: Confirm .env.example is present
+        run: test -f .env.example

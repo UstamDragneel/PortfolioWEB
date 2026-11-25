@@ -1,0 +1,13 @@
+# Private environment / API keys
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Local dev outbox (generated emails)
+storage/outbox/*
+!storage/outbox/.gitignore

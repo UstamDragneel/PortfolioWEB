@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathew | Personal Portfolio</title>
+    <title>Janmatsu.tech | Personal Portfolio</title>
     <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition is-active" id="pageTransition">
+        <div class="page-transition__ring"></div>
+        <div class="page-transition__text">Loading</div>
+    </div>
 
     <!-- Header & Navigation -->
     <header class="navbar">
         <div class="container nav-container">
-            <a href="#home" class="logo">Jan<span>Matsu.</span></a>
+            <a href="#home" class="logo">Janmatsu<span>.tech</span></a>
             <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
@@ -27,7 +35,8 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
             <div class="nav-actions">
-                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode" title="Toggle theme">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode"
+                    title="Toggle theme">
                     <i class="fas fa-moon" id="themeIcon"></i>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -40,83 +49,142 @@
     <!-- 1. Home Section -->
     <section id="home" class="hero-section">
         <div class="container hero-container">
-            <div class="hero-content">
-                <span class="greeting-badge">👋 Welcome to my portfolio</span>
-                <h1>Hi, I'm <span class="highlight">Jan Matsu</span></h1>
-                <h2>Full Stack Web Developer & Student</h2>
-                <p>Passionate about crafting clean, modern, and user-friendly digital experiences. I turn creative ideas into real web applications with clean code.</p>
-                <div class="hero-btns">
+            <div class="hero-content reveal-stagger">
+                <span class="greeting-badge scroll-reveal">👋 Welcome to my portfolio</span>
+                <h1 class="scroll-reveal">Hi, I'm <span class="highlight">Jan Matsu</span></h1>
+                <h2 class="scroll-reveal">23 yrs old Computer Science student</h2>
+                <h2 class="scroll-reveal"> BSCS 4th year</h2>
+                <h2 class="scroll-reveal"> at Lipa city Colleges</h2>
+                <p class="scroll-reveal">I am a BSCS 4th year student at Lipa City Colleges. I am passionate about
+                    computer science and
+                    technology. I am a hard worker and a team player. I am always looking for new challenges and
+                    opportunities to learn.
+                </p>
+                <div class="hero-btns scroll-reveal">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Projects</a>
                     <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+            </div>
+
+            <!-- Slideable Photo Carousel -->
+            <div class="hero-slider-wrapper scroll-reveal">
+
+                <!-- Slideable Photo Carousel -->
+                <div class="hero-slider-wrapper">
+                    <div class="slider-ambient-glow"></div>
+                    <div class="hero-slider" id="heroSlider" aria-roledescription="carousel"
+                        aria-label="Jan Matsu Photo Gallery">
+                        <div class="slider-track" id="sliderTrack">
+                            <!-- Slide 1: Chevron Night Photo -->
+                            <div class="slide-item active" data-index="0">
+                                <img src="img1.png" alt="Jan Matsu - Night Aesthetic" class="slide-img">
+                                <div class="slide-caption">
+                                    <span class="caption-tag">Jan Matsu</span>
+                                    <span class="caption-sub">Chevron Night Vibes</span>
+                                </div>
+                            </div>
+                            <!-- Slide 2: Mirror Selfie Photo -->
+                            <div class="slide-item" data-index="1">
+                                <img src="img.png.png" alt="Jan Matsu - Mirror Selfie" class="slide-img">
+                                <div class="slide-caption">
+                                    <span class="caption-tag">Jan Matsu</span>
+                                    <span class="caption-sub">Casual & Chill</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide Controls -->
+                        <button class="slider-btn prev-btn" id="sliderPrevBtn" aria-label="Previous Slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn next-btn" id="sliderNextBtn" aria-label="Next Slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Indicators -->
+                        <div class="slider-indicators" id="sliderIndicators">
+                            <button class="indicator active" data-slide="0" aria-label="Go to Slide 1"></button>
+                            <button class="indicator" data-slide="1" aria-label="Go to Slide 2"></button>
+                        </div>
+                    </div>
+                    <div class="slider-badge-floating">
+                        <i class="fas fa-camera"></i> Slide or drag to view
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 2. About Me Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section scroll-reveal">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-card">
+            <h2 class="section-title scroll-reveal">About Me</h2>
+            <div class="about-grid reveal-stagger">
+                <div class="about-card scroll-reveal">
                     <div class="about-header">
                         <i class="fas fa-user-graduate card-icon"></i>
                         <h3>Who I Am</h3>
                     </div>
-                    <p>I am an ambitious web developer driven by curiosity and problem-solving. I focus on developing responsive, accessible, and high-performance websites using contemporary frontend and backend tools.</p>
+                    <p>I am a hardworking and dedicated Computer Science student at Lipa City Colleges, deeply committed
+                        to academic excellence and continuous personal growth.
+                        Known for a strong work ethic and proactive leadership as a thesis leader, I bring a
+                        detail-oriented and persistent approach to every project I undertake.
+                        I thrive in challenging environments, take pride in working collaboratively with peers, and am
+                        always eager to learn new concepts and tackle complex problems to build a solid foundation for
+                        my future career..</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card scroll-reveal">
                     <div class="about-header">
                         <i class="fas fa-graduation-cap card-icon"></i>
                         <h3>Education</h3>
                     </div>
-                    <p><strong>Bachelor of Science in Information Technology</strong></p>
-                    <p class="subtext">Focused on Software Engineering, Web Technologies, and Database Systems with consistent academic excellence.</p>
+                    <p><strong>Bachelor of Science in Computer Science</strong></p>
+                    <p class="subtext">Focused on Software Engineering, Web Technologies, and Database Systems with
+                        consistent academic excellence.</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card scroll-reveal">
                     <div class="about-header">
                         <i class="fas fa-award card-icon"></i>
                         <h3>Leadership & Achievement</h3>
                     </div>
-                    <p><strong>Lead Developer & Tech Team Lead</strong></p>
-                    <p class="subtext">Directed a team of student developers during University Tech Week Hackathon, securing 1st Runner-Up for a community management web portal.</p>
+                    <p><strong>Thesis Leader & Student Developer</strong></p>
+                    <p class="subtext">Led development teams and collaborated on diverse academic computing projects,
+                        ensuring timely and high-quality deliverables.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Skills Section (At least 5 skills) -->
-    <section id="skills" class="skills-section">
+    <!-- 3. Skills Section -->
+    <section id="skills" class="skills-section scroll-reveal">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <p class="section-subtitle">Core technologies and tools I work with daily</p>
-            <div class="skills-grid">
-                <div class="skill-card">
+            <h2 class="section-title scroll-reveal">My Skills</h2>
+            <p class="section-subtitle scroll-reveal">Core technologies and tools I work with</p>
+            <div class="skills-grid reveal-stagger">
+                <div class="skill-card scroll-reveal">
                     <i class="fab fa-html5 skill-icon" style="color: #e34f26;"></i>
                     <h4>HTML5</h4>
                     <p>Semantic markup & accessibility</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card scroll-reveal">
                     <i class="fab fa-css3-alt skill-icon" style="color: #264de4;"></i>
                     <h4>CSS3</h4>
                     <p>Flexbox, Grid & animations</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card scroll-reveal">
                     <i class="fab fa-js skill-icon" style="color: #f7df1e;"></i>
                     <h4>JavaScript (ES6+)</h4>
                     <p>DOM manipulation & async logic</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card scroll-reveal">
                     <i class="fab fa-github skill-icon" style="color: var(--text-main);"></i>
                     <h4>Git & GitHub</h4>
                     <p>Version control & collaboration</p>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-react skill-icon" style="color: #61dafb;"></i>
-                    <h4>React</h4>
-                    <p>Component-based web apps</p>
-                </div>
-                <div class="skill-card">
+                <br>
+
+                
+                <div class="skill-card scroll-reveal">
                     <i class="fas fa-server skill-icon" style="color: #68a063;"></i>
                     <h4>Node.js / Express</h4>
                     <p>Backend APIs & databases</p>
@@ -125,14 +193,14 @@
         </div>
     </section>
 
-    <!-- 4. Projects Section (At least 2 sample projects) -->
-    <section id="projects" class="projects-section">
+    <!-- 4. Projects Section (Sample Projects) -->
+    <section id="projects" class="projects-section scroll-reveal">
         <div class="container">
-            <h2 class="section-title">Sample Projects</h2>
-            <p class="section-subtitle">Some of the projects I've built recently</p>
-            <div class="projects-grid">
+            <h2 class="section-title scroll-reveal">Sample Projects</h2>
+            <p class="section-subtitle scroll-reveal">Some of the projects I've built recently</p>
+            <div class="projects-grid reveal-stagger">
                 <!-- Project 1 -->
-                <div class="project-card">
+                <div class="project-card scroll-reveal">
                     <div class="project-image-box">
                         <i class="fas fa-shopping-bag project-banner-icon"></i>
                     </div>
@@ -152,7 +220,7 @@
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="project-card">
+                <div class="project-card scroll-reveal">
                     <div class="project-image-box">
                         <i class="fas fa-list-check project-banner-icon"></i>
                     </div>
@@ -175,17 +243,17 @@
     </section>
 
     <!-- 5. Ask About Me Chatbot Section -->
-    <section id="chatbot" class="chatbot-section">
+    <section id="chatbot" class="chatbot-section scroll-reveal">
         <div class="container">
-            <h2 class="section-title">Ask About Me</h2>
-            <p class="section-subtitle">Click a predefined question below to instantly learn more about me!</p>
+            <h2 class="section-title scroll-reveal">Ask About Me</h2>
+            <p class="section-subtitle scroll-reveal">Click a predefined question below to instantly learn more about me!</p>
             
             <div class="chat-container">
                 <div class="chat-header">
                     <div class="chat-status">
                         <span class="status-dot"></span>
                         <div>
-                            <strong>Mathew Assistant</strong>
+                            <strong>Jan Matsu Assistant</strong>
                             <small class="status-text">Online & Ready</small>
                         </div>
                     </div>
@@ -194,7 +262,7 @@
                 
                 <div class="chat-messages" id="chatMessages">
                     <div class="chat-bubble bot-bubble">
-                        Hi there! 👋 I am Mathew's portfolio assistant. What would you like to know about Mathew? Pick any question below!
+                        Hi there! 👋 I am Jan Matsu's portfolio assistant. What would you like to know? Pick any question below!
                     </div>
                 </div>
 
@@ -212,10 +280,10 @@
     </section>
 
     <!-- 6. Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section scroll-reveal">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Feel free to reach out for collaborations, project inquiries, or just to say hi!</p>
+            <h2 class="section-title scroll-reveal">Get In Touch</h2>
+            <p class="section-subtitle scroll-reveal">Feel free to reach out for collaborations, project inquiries, or just to say hi!</p>
             
             <div class="contact-wrapper">
                 <div class="contact-info-card">
@@ -223,45 +291,56 @@
                     <p>Have an interesting project or opportunity? Don't hesitate to message me.</p>
                     
                     <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                        <i class="fas fa-envelope contact-item-icon"></i>
                         <div>
-                            <strong>Email Address</strong>
-                            <p><a href="mailto:mathew@example.com">mathew@example.com</a></p>
+                            <strong>Email</strong>
+                            <a href="mailto:Janmatsu81@gmail.com">Janmatsu81@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+                        <i class="fas fa-map-marker-alt contact-item-icon"></i>
                         <div>
                             <strong>Location</strong>
-                            <p>Philippines</p>
+                            <p>Lipa City, Batangas, Philippines</p>
                         </div>
                     </div>
-
                     <div class="social-block">
-                        <strong>Connect On Socials</strong>
+                        <strong>Follow Me</strong>
                         <div class="social-links">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61594356212768" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/chocomatsuuu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/UstamDragneel" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form action="api/send-email.php" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" maxlength="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" maxlength="190"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can I help you?"
+                                maxlength="5000" required></textarea>
+                        </div>
 
-                <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been sent successfully.'); this.reset();">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
-                </form>
+                        <!-- Honeypot: hidden from humans, catches bots -->
+                        <div class="form-group form-honeypot" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -270,6 +349,11 @@
     <footer>
         <div class="container footer-container">
             <p>&copy; 2026 Mathew. Built with HTML, CSS, and JavaScript. Hosted on GitHub.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/profile.php?id=61594356212768" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/chocomatsuuu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/UstamDragneel" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
             <div class="footer-links">
                 <a href="#home">Back to top <i class="fas fa-arrow-up"></i></a>
             </div>
@@ -278,4 +362,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const botAnswers = {
         education: {
             question: "🎓 What is your education?",
-            answer: "I am pursuing a Bachelor of Science in Information Technology (BSIT) focusing on Software Engineering, Web Technologies, and Database Systems."
+            answer: "I am a BSCS 4th year student at Lipa City Colleges, focusing on Software Engineering, Web Technologies, and Database Systems."
         },
         skills: {
             question: "💻 What are your key technical skills?",
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         contact: {
             question: "📬 How can I hire or contact you?",
-            answer: "You can reach me directly via email at mathew@example.com or send a message using the Contact section form at the bottom of this page!"
+            answer: "You can reach me directly via email at Janmatsu81@gmail.com or send a message using the Contact section form at the bottom of this page!"
         }
     };
 
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resetChatBtn.addEventListener('click', () => {
             chatMessages.innerHTML = `
                 <div class="chat-bubble bot-bubble">
-                    Hi there! 👋 I am Mathew's portfolio assistant. What would you like to know about Mathew? Pick any question below!
+                    Hi there! 👋 I am Jan Matsu's portfolio assistant. What would you like to know? Pick any question below!
                 </div>
             `;
         });
@@ -156,5 +156,260 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    /* --------------------------------------------------------------------------
+       4. Hero Photo Slider (Arrows, Dot Indicators, Drag & Swipe, Autoplay)
+       -------------------------------------------------------------------------- */
+    const heroSlider = document.getElementById('heroSlider');
+    const sliderTrack = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('sliderPrevBtn');
+    const nextBtn = document.getElementById('sliderNextBtn');
+    const indicatorBtns = document.querySelectorAll('.slider-indicators .indicator');
+    const slides = document.querySelectorAll('.slide-item');
+
+    if (sliderTrack && slides.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoplayTimer = null;
+        let isDragging = false;
+        let startPosX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        function updateSlider(index, animate = true) {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            if (animate) {
+                sliderTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
+            } else {
+                sliderTrack.style.transition = 'none';
+            }
+
+            sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Update active states
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === currentIndex);
+            });
+
+            indicatorBtns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        // Navigation button listeners
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                updateSlider(currentIndex - 1);
+                restartAutoplay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                updateSlider(currentIndex + 1);
+                restartAutoplay();
+            });
+        }
+
+        // Indicators click
+        indicatorBtns.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                const slideIndex = parseInt(indicator.getAttribute('data-slide'), 10);
+                updateSlider(slideIndex);
+                restartAutoplay();
+            });
+        });
+
+        // Autoplay logic (rotates every 5 seconds)
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = setInterval(() => {
+                updateSlider(currentIndex + 1);
+            }, 5000);
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        function restartAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        if (heroSlider) {
+            heroSlider.addEventListener('mouseenter', stopAutoplay);
+            heroSlider.addEventListener('mouseleave', startAutoplay);
+
+            // Touch & Mouse Drag / Swipe Handlers
+            heroSlider.addEventListener('touchstart', touchStart, { passive: true });
+            heroSlider.addEventListener('touchmove', touchMove, { passive: true });
+            heroSlider.addEventListener('touchend', touchEnd);
+
+            heroSlider.addEventListener('mousedown', touchStart);
+            heroSlider.addEventListener('mousemove', touchMove);
+            heroSlider.addEventListener('mouseup', touchEnd);
+            heroSlider.addEventListener('mouseleave', () => {
+                if (isDragging) touchEnd();
+            });
+        }
+
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        function touchStart(event) {
+            if (event.target.closest('.slider-btn') || event.target.closest('.slider-indicators')) return;
+            isDragging = true;
+            startPosX = getPositionX(event);
+            prevTranslate = -currentIndex * (heroSlider ? heroSlider.offsetWidth : 0);
+            stopAutoplay();
+        }
+
+        function touchMove(event) {
+            if (!isDragging) return;
+            const currentPosition = getPositionX(event);
+            const diffX = currentPosition - startPosX;
+            currentTranslate = prevTranslate + diffX;
+            sliderTrack.style.transition = 'none';
+            sliderTrack.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function touchEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+
+            if (movedBy < -50 && currentIndex < totalSlides - 1) {
+                currentIndex += 1;
+            } else if (movedBy > 50 && currentIndex > 0) {
+                currentIndex -= 1;
+            } else if (movedBy < -50 && currentIndex === totalSlides - 1) {
+                currentIndex = 0;
+            } else if (movedBy > 50 && currentIndex === 0) {
+                currentIndex = totalSlides - 1;
+            }
+
+            updateSlider(currentIndex, true);
+            startAutoplay();
+        }
+
+        // Start autoplay initially
+        startAutoplay();
+    }
+
+    /* --------------------------------------------------------------------------
+       5. Scroll Reveal Animations - fade in every time section scrolls into view
+       -------------------------------------------------------------------------- */
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    if (revealElements.length > 0) {
+        const revealOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0,
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                } else {
+                    entry.target.classList.remove('revealed');
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+    }
+
+    /* --------------------------------------------------------------------------
+       6. Page Transitions
+       -------------------------------------------------------------------------- */
+    const pageTransition = document.getElementById('pageTransition');
+
+    if (pageTransition) {
+        setTimeout(() => {
+            pageTransition.classList.remove('is-active');
+        }, 500);
+    }
+
+    document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link || !pageTransition) return;
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        if (link.target === '_blank') return;
+        if (href.startsWith('http') && !href.includes(location.hostname)) return;
+
+        event.preventDefault();
+        pageTransition.classList.add('is-active');
+        setTimeout(() => {
+            location.href = href;
+        }, 550);
+    });
+
+    /* --------------------------------------------------------------------------
+       7. Contact Form → Resend Emailer
+       -------------------------------------------------------------------------- */
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm && formStatus) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const payload = Object.fromEntries(new FormData(contactForm).entries());
+            const originalLabel = submitBtn ? submitBtn.innerHTML : '';
+
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            }
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok || !result.ok) {
+                    throw new Error(result.error || 'Something went wrong. Please try again.');
+                }
+
+                formStatus.textContent = result.message || 'Thanks! Your message has been sent.';
+                formStatus.classList.add('is-success');
+                contactForm.reset();
+            } catch (error) {
+                formStatus.textContent = error.message || 'Something went wrong. Please try again.';
+                formStatus.classList.add('is-error');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalLabel;
+                }
+            }
+        });
+    }
 
 });

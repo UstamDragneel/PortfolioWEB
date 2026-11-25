@@ -1,0 +1,8 @@
+# Never serve the private environment file to the browser.
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+# Don't expose git metadata or directory listings.
+RedirectMatch 404 /\.git
+Options -Indexes
