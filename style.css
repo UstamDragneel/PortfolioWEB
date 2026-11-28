@@ -201,16 +201,28 @@ section {
     justify-content: space-between;
 }
 
-.logo {
-    font-size: 1.45rem;
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: var(--logo-color);
+    color: var(--bg-main);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
     font-weight: 800;
-    color: var(--logo-color);
-    text-decoration: none;
     letter-spacing: -0.02em;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 18px -8px var(--primary-glow);
+    transition: var(--transition);
 }
 
-.logo span {
-    color: var(--logo-color);
+.logo-mark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -8px var(--primary-glow);
 }
 
 .nav-menu {
